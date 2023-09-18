@@ -20,8 +20,10 @@ export class CardComponent implements OnInit {
     this.activeRoute.params.subscribe (
       res => console.log (res)
     )
-
-
+  // metodo para usar os queryParams
+   this.activeRoute.queryParams.subscribe (
+    res => console.log (res)
+   )
 
   }
 
