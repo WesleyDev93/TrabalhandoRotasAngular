@@ -9,6 +9,7 @@ const routes: Routes = [
   // prefix tem variaçãoes
   {path: '', component: TitleComponent, pathMatch: 'full'},
   {path: 'portifolio', component: CardComponent, pathMatch: 'prefix'},
+  {path:'**',redirectTo: ''}
 ];
 
 @NgModule({

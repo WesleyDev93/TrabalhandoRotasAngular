@@ -7,10 +7,12 @@ import { TitleComponent } from './pages/index/title/title.component';
 
 import {IndexModule} from  './pages/index/index.module';
 import {PortifolioModule} from './pages/portifolio/portifolio.module';
+import { MenuComponent } from './shared/menu/menu.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
