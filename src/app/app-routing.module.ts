@@ -8,11 +8,19 @@ const routes: Routes = [
   //full quer dizer rota exata sem variação na URL
   // prefix tem variaçãoes
   {path: '', component: TitleComponent, pathMatch: 'full'},
-   // recuperar paramentos colocamos /:id assim ele vai criar um id para
-   // podermos usar esse id
-  {path: 'portifolio/:id', component: CardComponent, pathMatch: 'prefix'},
 
-  {path:'**',redirectTo: ''}
+
+  {path:'**',redirectTo: ''},
+
+
+  // novo path para inserir as rotas filhas
+
+  {path:'portifolio', component: CardComponent, children: [
+  // recuperar paramentos colocamos /:id assim ele vai criar um id para
+   // podermos usar esse id
+   // colocamos agora esse path dentro da rota filha
+   {path: ':id', component: CardComponent, pathMatch: 'prefix'},
+  ]}
 ];
 
 @NgModule({

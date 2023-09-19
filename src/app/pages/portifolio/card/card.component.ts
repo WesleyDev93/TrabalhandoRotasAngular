@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // importando ActivatedRoute
 
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 
 
@@ -13,11 +13,12 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class CardComponent implements OnInit {
 // adicionamos ao contrutor o metodo para as rotas  e devemos importar o ActivateRoute
-  constructor (private activeRoute: ActivatedRoute) {
+  // adicionaremos o router dentro do construtor
+  constructor (private activeRoute: ActivatedRoute, private navegador: Router) {
 
     // vamos adicionar o caminho para pegar os parametros
 
-    this.activeRoute.params.subscribe (
+    this.activeRoute.firstChild?.params.subscribe (
       res => console.log (res)
     )
   // metodo para usar os queryParams
@@ -28,7 +29,12 @@ export class CardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+  // vamos atribuir o evento de call beck agora depois de inserir o router
+  // atraves do setInterval determinamos um intervalo de tempo para ocorrer o carregamento da pagina
+  // Assim havera 5 segundos antes de ser redirecionado.
+   setInterval (() => {
+          this.navegador.navigate (['/'])
+   }, 5000)
   }
 
 }
